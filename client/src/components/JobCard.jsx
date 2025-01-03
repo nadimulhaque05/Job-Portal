@@ -3,6 +3,9 @@ import { assets } from '../assets/assets'
 import { useNavigate } from 'react-router-dom'
 
 const JobCard = ({ job }) => {
+
+  
+  const navigate = useNavigate();
   return (
     <div className='border  p-6 shadow rounded'>
         <div className='flex justify-between items-center'>
@@ -22,4 +25,4 @@ const JobCard = ({ job }) => {
   )
 }
 
-export default JobCard
+export default JobCard;

@@ -20,7 +20,7 @@ export const AppContextProvider = (props) => {
   }
 
   useEffect(()=> {
-    fetchJobs
+    fetchJobs();
   },[])
 
   const value = {
