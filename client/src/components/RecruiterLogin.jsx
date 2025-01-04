@@ -17,7 +17,7 @@ const RecruiterLogin = () => {
   const onSubmitHandler = async (e) => {
     e.preventDefault()
     
-    if(state == "Sing Up" && !isTextDataSubmitted) {
+    if(state === "Sign Up" && !isTextDataSubmitted) {
       setIsTextDataSubmitted(true)
     }
   }
@@ -32,7 +32,7 @@ const RecruiterLogin = () => {
   }, [])
 
   return (
-    <div className="absolute top-0 left-0 right-0 button-0 z-10 backdrop-blur-sm bg-black/30 flex justify-center items-center">
+    <div className="absolute top-0 left-0 right-0 button-0 z-10 backdrop-blur-sm bg-black/30 flex justify-center items-center min-h-screen">
       <form onSubmit={onSubmitHandler} className="relative bg-white p-10 rounded-xl  text-slate-500">
         <h1 className="text-center text-2xl text-neutral-700 font-medium">
           Recruiter {state}
@@ -43,7 +43,7 @@ const RecruiterLogin = () => {
        ? (
           <>
           
-          <div>
+          <div className="flex items-center gap-2 py-6">
               <label htmlFor="image">
                 <img className="w-16 rounded-full" src={image ? URL.createObjectURL(image) : assets.upload_area} alt="" />
                 <input onChange={e=>setImage(e.target.files[0])} type="file" id="image" hidden />
@@ -99,7 +99,7 @@ const RecruiterLogin = () => {
         </p>}
 
         <button type="submit" className="bg-blue-600 w-full text-white py-2 rounded-full mt-4">
-          {state === "Login" ? "login" : isTextDataSubmitted ? "create account" : "next"}
+          {state === "Login" ? "Login" : isTextDataSubmitted ? "Create account" : "Next"}
         </button>
 
         {state === "Login" ? (
@@ -117,7 +117,10 @@ const RecruiterLogin = () => {
             Already have an account?{" "}
             <span
               className="text-blue-600 cursor-pointer"
-              onClick={() => setState("Login")}
+              onClick={() => {
+                setState("Login");
+                setIsTextDataSubmitted(false);
+              }}
             >
               Login
             </span>

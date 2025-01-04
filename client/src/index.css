@@ -11,7 +11,7 @@
     html {
         scroll-behavior: smooth;
     }
-}::-webkit-resizer{
+}::-webkit-scrollbar{
     display: none;
 }
 
